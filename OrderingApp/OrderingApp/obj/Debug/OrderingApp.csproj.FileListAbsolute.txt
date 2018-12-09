@@ -1,0 +1,25 @@
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.exe.config
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.exe
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.pdb
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\MySql.Data.dll
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csprojResolveAssemblyReference.cache
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.Form1.resources
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.order.resources
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.Properties.Resources.resources
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csproj.GenerateResource.Cache
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csproj.CoreCompileInputs.cache
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.exe
+U:\My Desktop\Unit 14 EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.pdb
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.exe.config
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.exe
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\OrderingApp.pdb
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\bin\Debug\MySql.Data.dll
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csprojAssemblyReference.cache
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.Form1.resources
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.order.resources
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.Properties.Resources.resources
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csproj.GenerateResource.cache
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csproj.CoreCompileInputs.cache
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.csproj.CopyComplete
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.exe
+C:\Users\rakib\Desktop\EDP\Assignment\OrderingApp\OrderingApp\OrderingApp\obj\Debug\OrderingApp.pdb
