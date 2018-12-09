@@ -89,6 +89,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tpCheckout = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtDeliveryCharges = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -109,8 +111,6 @@
             this.lstSides = new System.Windows.Forms.ListBox();
             this.lstDrinks = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.tcOrder.SuspendLayout();
             this.tpPizza.SuspendLayout();
             this.gbTopping.SuspendLayout();
@@ -677,6 +677,7 @@
             this.txtPost.Name = "txtPost";
             this.txtPost.Size = new System.Drawing.Size(306, 26);
             this.txtPost.TabIndex = 14;
+            this.txtPost.Validating += new System.ComponentModel.CancelEventHandler(this.txtPost_Validating);
             // 
             // label23
             // 
@@ -707,6 +708,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(306, 26);
             this.txtPhone.TabIndex = 10;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // txtAddress
             // 
@@ -716,6 +718,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(306, 26);
             this.txtAddress.TabIndex = 9;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // txtName
             // 
@@ -725,6 +728,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(306, 26);
             this.txtName.TabIndex = 8;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // label21
             // 
@@ -781,6 +785,25 @@
             this.tpCheckout.TabIndex = 4;
             this.tpCheckout.Text = "Checkout";
             this.tpCheckout.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(6, 504);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(113, 17);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Staff member ID:";
+            // 
+            // txtEmployeeID
+            // 
+            this.txtEmployeeID.BackColor = System.Drawing.Color.White;
+            this.txtEmployeeID.Enabled = false;
+            this.txtEmployeeID.Location = new System.Drawing.Point(125, 503);
+            this.txtEmployeeID.Name = "txtEmployeeID";
+            this.txtEmployeeID.Size = new System.Drawing.Size(100, 20);
+            this.txtEmployeeID.TabIndex = 9;
             // 
             // groupBox4
             // 
@@ -967,27 +990,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(6, 504);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(113, 17);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "Staff member ID:";
-            // 
-            // txtEmployeeID
-            // 
-            this.txtEmployeeID.BackColor = System.Drawing.Color.White;
-            this.txtEmployeeID.Enabled = false;
-            this.txtEmployeeID.Location = new System.Drawing.Point(125, 503);
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(100, 20);
-            this.txtEmployeeID.TabIndex = 9;
             // 
             // order
             // 

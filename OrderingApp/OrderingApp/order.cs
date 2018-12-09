@@ -14,6 +14,7 @@ namespace OrderingApp
 {
     public partial class order : Form
     {
+        /*================================CREATE GLOBAL VARIABLES=========================*/
         //Employee ID for reference
         string employeeID;
 
@@ -76,6 +77,7 @@ namespace OrderingApp
             timer1.Start();
         }
 
+        /*===============================NEXT AND PREVIOUS TAB INTERACTION=======================*/
         private void GoToNextTab()
         {
             //Method that will be used to every next button, to go in the next tab
@@ -86,6 +88,7 @@ namespace OrderingApp
             tcOrder.SelectedIndex = i;
         }
 
+        /*======================================METHOD FOR POPULATING LISTS============================*/
         private void pizzaListShow()
         {
             //method for showing pizza in the listbox
@@ -143,6 +146,7 @@ namespace OrderingApp
             }
         }
 
+        /*====================================DEALS=========================================*/
         public double ApplyDealOne()
         {
             //Method that will be called, when the right checkbox is selected
@@ -208,6 +212,7 @@ namespace OrderingApp
             return dealTwoSaves;
         }
 
+        /*==============================================CALCULATIONS=====================================*/
         private void CalculateTotal()
         {
             /*=======================Calculate the total price for the order.=====================*/
@@ -246,6 +251,7 @@ namespace OrderingApp
 
         }
 
+        /*===========================================ADD PIZZA==========================================*/
         private void btnAddPizza_Click(object sender, EventArgs e)
         {
             //Create a new pizzza item
@@ -351,6 +357,7 @@ namespace OrderingApp
             GoToNextTab();
         }
 
+        /*=================================================ADD SIDES===============================*/
         private void btnAddSide_Click(object sender, EventArgs e)
         {
             //Clears the list of sides, every time the add button is clicked. It will avoid duplicate.
@@ -423,6 +430,7 @@ namespace OrderingApp
             GoToNextTab();
         }
 
+        /*=========================================ADD DRINKS=======================================*/
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
             //Clears the drink list to avoid duplicate
@@ -484,28 +492,9 @@ namespace OrderingApp
             GoToNextTab();
         }
 
+        /*================================================CHECKOUT================================*/
         private void btnGoToCheckout_Click(object sender, EventArgs e)
         {
-            /*=========================Saves customer info=========================*/
-
-            //Creates regex to validate input
-            Regex RegexName = new Regex(@"^[a-zA-Z\ -']+$"); //Regex that will be compared to the name input, so that only letters, and spaces can be inserted
-            Regex RagexPhone = new Regex(@"^[0-9]{11}$"); // Regex that will be compared to the phone number input, so that only numbers will be accepted. Max char is 11
-            Regex RegexAddress = new Regex(@"^[a-zA-Z0-9\, ]+$"); // Regex that will be compared to the address input, will allow only letters, numbers spaces, comas.
-            Regex RegexPostcode = new Regex(@"^[a-zA-Z0-9\ ]{7}$"); // Regex that will be compared to the postcode input, it will allow only letters, numbers, spaces. Max char is 7
-
-            //checks if regex matches input
-            if (RegexName.IsMatch(txtName.ToString()))
-            {
-                name = txtName.ToString();
-            }
-            else if (!RegexName.IsMatch(txtName.ToString()))
-            {
-                MessageBox.Show("Name can contain only letters, spaces, hypens and apostrophes");
-            }
-
-
-
             //Adds the checkout page
             tcOrder.TabPages.Add(tpCheckout);
             //Calls the next tab method, to get to the next tab
@@ -554,6 +543,7 @@ namespace OrderingApp
             CalculateTotal();
         }
 
+        /*================ Delte buttons on tab pages==============*/
         private void btlDeletePizza_Click(object sender, EventArgs e)
         {
             pizzaAndTopping.RemoveAt(lstPizza.SelectedIndex);
@@ -567,6 +557,70 @@ namespace OrderingApp
         private void btnDeleteDrink_Click(object sender, EventArgs e)
         {
             drinks.RemoveAt(lstDrinks.SelectedIndex);
+        }
+
+        /*================ validating text boxes===================*/
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            Regex RegexName = new Regex(@"^w+$"); //Regex that will be compared to the name input, so that only letters, and spaces can be inserted
+            //Checks if regex matches name
+            if (RegexName.IsMatch(txtName.ToString()))
+            {
+                name = txtName.ToString();
+            }
+            else if (!RegexName.IsMatch(txtName.ToString()))
+            {
+                MessageBox.Show("Name field can contain only letters, spaces, hypens and apostrophes");
+                txtName.Clear();
+            }
+        }
+
+        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        {
+            Regex RegexAddress = new Regex(@"^[a-zA-Z0-9\, ]+$"); // Regex that will be compared to the address input, will allow only letters, numbers spaces, comas.
+
+            //Checks if regex matches address
+            if (RegexAddress.IsMatch(txtAddress.ToString()))
+            {
+                address = txtAddress.ToString();
+            }
+            else if (!RegexAddress.IsMatch(txtAddress.ToString()))
+            {
+                MessageBox.Show("Address field can contain only letters, numbers, spaces and comas");
+                txtAddress.Clear();
+            }
+        }
+
+        private void txtPost_Validating(object sender, CancelEventArgs e)
+        {
+            Regex RegexPostcode = new Regex(@"^[a-zA-Z0-9\ ]$"); // Regex that will be compared to the postcode input, it will allow only letters, numbers, spaces. Max char is 7
+
+            //Checks if the regex matches the postcode
+            if (RegexPostcode.IsMatch(txtPost.ToString()))
+            {
+                postcode = txtPost.ToString();
+            }
+            else if (!RegexPostcode.IsMatch(txtPost.ToString()))
+            {
+                MessageBox.Show("Postcode field can contain only letters, numbers and spaces");
+                txtPost.Clear();
+            }
+        }
+
+        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        {
+            Regex RegexPhone = new Regex(@"^[0-9\]+$"); // Regex that will be compared to the phone number input, so that only numbers will be accepted. 
+
+            //Checks if regex matches phone
+            if (RegexPhone.IsMatch(txtPhone.ToString()))
+            {
+                phone = txtPhone.ToString();
+            }
+            else if (!RegexPhone.IsMatch(txtPhone.ToString()))
+            {
+                MessageBox.Show("Phone field can contain only numbers");
+                txtPhone.Clear();
+            }
         }
     }
 
