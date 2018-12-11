@@ -93,6 +93,16 @@ namespace OrderingApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img_137547 {
+            get {
+                object obj = ResourceManager.GetObject("img_137547", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mto4z4y0xaenpk1dhuer2vowgbwfh64s7vk8ev32hzeha0dmfjcigtzvxfredgxw_ {
             get {
                 object obj = ResourceManager.GetObject("mto4z4y0xaenpk1dhuer2vowgbwfh64s7vk8ev32hzeha0dmfjcigtzvxfredgxw-", resourceCulture);

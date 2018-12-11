@@ -73,11 +73,11 @@ namespace OrderingApp
 
             //Hides the checkout page, so that it can only be seen when all the items have been added
             tcOrder.TabPages.Remove(tpCheckout);
-
-            timer1.Start();
         }
 
         /*===============================NEXT AND PREVIOUS TAB INTERACTION=======================*/
+
+        //Next and previous methods
         private void GoToNextTab()
         {
             //Method that will be used to every next button, to go in the next tab
@@ -87,6 +87,47 @@ namespace OrderingApp
             //Chancghes the index, so that it can go to the next page
             tcOrder.SelectedIndex = i;
         }
+
+        private void GoToPrevtab()
+        {
+            //Gets current index of the tab page, and removes one
+            int i = tcOrder.SelectedIndex - 1;
+            //Chancghes the index, so that it can go to the next page
+            tcOrder.SelectedIndex = i;
+        }
+
+        //Call method when prev is clicked
+        private void btnPrevToPizza_Click(object sender, EventArgs e)
+        {
+            GoToPrevtab();
+        }
+
+        private void btnPrevToSide_Click(object sender, EventArgs e)
+        {
+            GoToPrevtab();
+        }
+
+        private void btnPrevToDrink_Click(object sender, EventArgs e)
+        {
+            GoToPrevtab();
+        }
+        
+        //Go to next tab
+        private void btnGoToSides_Click(object sender, EventArgs e)
+        {
+            GoToNextTab();
+        }
+
+        private void btnGoToDrink_Click(object sender, EventArgs e)
+        {
+            GoToNextTab();
+        }
+
+        private void btnGoToCustomer_Click(object sender, EventArgs e)
+        {
+            GoToNextTab();
+        }
+
 
         /*======================================METHOD FOR POPULATING LISTS============================*/
         private void pizzaListShow()
@@ -135,7 +176,7 @@ namespace OrderingApp
             lstPizzaAndToppings.ClearSelected();
             for (int i = 0; i < pizzaAndTopping.Count(); i++)
             {
-                lstPizzaAndToppings.Items.Add(i.ToString() + ")" + " " + pizzaAndTopping[i].size + " Pizza with: ");
+                lstPizzaAndToppings.Items.Add((i + 1).ToString() + ")" + " " + pizzaAndTopping[i].size + " Pizza with: ");
 
                 //for loop to cycle through the topping list. It takes the index of the pizza used (from the for loop before)
                 //uses it as the reference to target the right topping list; and then cycle through the topping list to display all the topping, of a pizza.
@@ -352,11 +393,6 @@ namespace OrderingApp
             }
         }
 
-        private void btnGoToSides_Click(object sender, EventArgs e)
-        {
-            GoToNextTab();
-        }
-
         /*=================================================ADD SIDES===============================*/
         private void btnAddSide_Click(object sender, EventArgs e)
         {
@@ -423,11 +459,15 @@ namespace OrderingApp
 
             //Calls the method to display items in the side listbox
             sideListShow();
-        }
 
-        private void btnGoToDrink_Click(object sender, EventArgs e)
-        {
-            GoToNextTab();
+            //Reset the numeric up and down to zero
+            nudPlainGarlic.Value = 0;
+            nudCheeseGarlic.Value = 0;
+            nudFries.Value = 0;
+            nudLargeFries.Value = 0;
+            nud5SpicyChicken.Value = 0;
+            nud10SpicyChicken.Value = 0;
+            nudColeslaw.Value = 0;
         }
 
         /*=========================================ADD DRINKS=======================================*/
@@ -485,11 +525,14 @@ namespace OrderingApp
                 drinks.Add(newDrink);
             }
             drinkListShow();
-        }
 
-        private void btnGoToCustomer_Click(object sender, EventArgs e)
-        {
-            GoToNextTab();
+            //Reset the numeric up and down to zero
+            nudCoke.Value = 0;
+            nudDiet.Value = 0;
+            nudFanta.Value = 0;
+            nudTango.Value = 0;
+            nudSevenUp.Value = 0;
+            nudPepsi.Value = 0;
         }
 
         /*================================================CHECKOUT================================*/
@@ -499,12 +542,18 @@ namespace OrderingApp
             tcOrder.TabPages.Add(tpCheckout);
             //Calls the next tab method, to get to the next tab
             GoToNextTab();
-            //Calls the method to populate the list in the checkout page.
-            ShowListPizzaTopping();
-            //Calls the method that contains all the calculations
-            CalculateTotal();
         }
 
+        private void tcOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcOrder.SelectedIndex == 4)
+            {
+                //Calls the method to populate the list in the checkout page.
+                ShowListPizzaTopping();
+                //Calls the method that contains all the calculations
+                CalculateTotal();
+            }
+        }
 
         private void cbDeal1_CheckedChanged(object sender, EventArgs e)
         {
@@ -532,95 +581,148 @@ namespace OrderingApp
             txtTotPrice.Text = $"{totFinal:C2}";
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //Calls the methods to populate the various lists after a certain amount of time passed. This allow to automatically update the lists,
-            //without the need of user interactions. Also it allows to reduce how many times the methods are called, so it makes the code a bit neater.
-            pizzaListShow();
-            drinkListShow();
-            sideListShow();
-            ShowListPizzaTopping();
-            CalculateTotal();
-        }
-
-        /*================ Delte buttons on tab pages==============*/
+        /*==================================DELETE BUTTONS===================================*/
         private void btlDeletePizza_Click(object sender, EventArgs e)
         {
+            //Remove the pizza selected from the list
             pizzaAndTopping.RemoveAt(lstPizza.SelectedIndex);
+
+            //Loop to cycle through the pizzas, and populate the list again.
+            //Calling function doesn't work, as the function checks if the items are more than zero,
+            //so if the list has one item, and then we delete it, the list has zero items, but the listbox still shows one.
+            //Which creates an index error.
+            lstPizza.Items.Clear();
+            for (int i = 0; i < pizzaAndTopping.Count; i++)
+            {
+                lstPizza.Items.Add(pizzaAndTopping[i].size + " Toppings x" + pizzaAndTopping[i].numOfToppings + " " + $"{pizzaAndTopping[i].price:C2}");
+            }
+
         }
 
         private void btnDeleteSide_Click(object sender, EventArgs e)
         {
             sides.RemoveAt(lstSides.SelectedIndex);
+
+            //After removing item, repopulate the list
+            lstSides.Items.Clear();
+            for (int i = 0; i < sides.Count; i++)
+            {
+                lstSides.Items.Add(sides[i].name + " Quantity x" + sides[i].quantity + " " + $"{sides[i].price:C2}");
+            }
         }
 
         private void btnDeleteDrink_Click(object sender, EventArgs e)
         {
             drinks.RemoveAt(lstDrinks.SelectedIndex);
+
+            //After removing item, repopulate the list
+            lstDrinks.Items.Clear();
+            for (int i = 0; i < drinks.Count; i++)
+            {
+                lstDrinks.Items.Add(drinks[i].name + " Quantity x" + drinks[i].quantity + " " + $"{drinks[i].price:C2}");
+            }
         }
 
-        /*================ validating text boxes===================*/
+        /*======================================VALIDATING TEXT BOXES IN CUSTOMER TAB==================================*/
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
-            Regex RegexName = new Regex(@"^w+$"); //Regex that will be compared to the name input, so that only letters, and spaces can be inserted
-            //Checks if regex matches name
-            if (RegexName.IsMatch(txtName.ToString()))
+            if (txtName.Text == "")
             {
-                name = txtName.ToString();
+                MessageBox.Show("Can't be blank");
             }
-            else if (!RegexName.IsMatch(txtName.ToString()))
+            else
             {
-                MessageBox.Show("Name field can contain only letters, spaces, hypens and apostrophes");
-                txtName.Clear();
+                name = txtName.Text;
             }
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
-            Regex RegexAddress = new Regex(@"^[a-zA-Z0-9\, ]+$"); // Regex that will be compared to the address input, will allow only letters, numbers spaces, comas.
-
-            //Checks if regex matches address
-            if (RegexAddress.IsMatch(txtAddress.ToString()))
+            if (txtAddress.Text == "")
             {
-                address = txtAddress.ToString();
+                MessageBox.Show("Can't be blank");
             }
-            else if (!RegexAddress.IsMatch(txtAddress.ToString()))
+            else
             {
-                MessageBox.Show("Address field can contain only letters, numbers, spaces and comas");
-                txtAddress.Clear();
+                address = txtAddress.Text;
             }
         }
 
         private void txtPost_Validating(object sender, CancelEventArgs e)
         {
-            Regex RegexPostcode = new Regex(@"^[a-zA-Z0-9\ ]$"); // Regex that will be compared to the postcode input, it will allow only letters, numbers, spaces. Max char is 7
-
-            //Checks if the regex matches the postcode
-            if (RegexPostcode.IsMatch(txtPost.ToString()))
+            if (txtPost.Text == "")
             {
-                postcode = txtPost.ToString();
+                MessageBox.Show("Can't be blank");
             }
-            else if (!RegexPostcode.IsMatch(txtPost.ToString()))
+            else
             {
-                MessageBox.Show("Postcode field can contain only letters, numbers and spaces");
-                txtPost.Clear();
+                postcode = txtPost.Text;
             }
         }
 
         private void txtPhone_Validating(object sender, CancelEventArgs e)
         {
-            Regex RegexPhone = new Regex(@"^[0-9\]+$"); // Regex that will be compared to the phone number input, so that only numbers will be accepted. 
+            if (txtPhone.Text == "")
+            {
+                MessageBox.Show("Can't be blank");
+            }
+            else
+            {
+                phone = txtPhone.Text;
+            }
+        }
 
-            //Checks if regex matches phone
-            if (RegexPhone.IsMatch(txtPhone.ToString()))
+        /*============================RELOAD ORDER OR CLOSE==========================*/
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult orderConfirmed = MessageBox.Show("ORDER SENT.\nWould you like to order again?\n'No' will close the application", "ORDER CONFIRMATION", MessageBoxButtons.YesNo);
+            if (orderConfirmed == DialogResult.Yes)
             {
-                phone = txtPhone.ToString();
+                //Closes the current form, creates a new one and shows it.
+                this.Close();
+                order newForm = new order(employeeID);
+                newForm.Show();
             }
-            else if (!RegexPhone.IsMatch(txtPhone.ToString()))
+            else if (orderConfirmed == DialogResult.No)
             {
-                MessageBox.Show("Phone field can contain only numbers");
-                txtPhone.Clear();
+                //Close the form
+                this.Close();
             }
+        }
+
+        /*==================================HELP==========================================*/
+        private void pbPizza_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. Select the size of the pizza from the drop down.\n" +
+                "2. Choose the toppings.\n3. Click ADD to add, repeat if more pizzas need to be added.\n4." +
+                " Click next to proceed to next page.");
+        }
+
+        private void pbSides_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. There is a numeric up and down on each row.\n" +
+                "2. Use the up and down arrows to select how many of each item you want\n" +
+                "3. Click ADD to add, then Next to proceed");
+        }
+
+        private void pbDrinks_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. There is a numeric up and down on each row.\n" +
+                "2. Use the up and down arrows to select how many of each item you want\n" +
+                "3. Click ADD to add, then Next to proceed");
+        }
+
+        private void pbCustomer_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. Fields can't be blank\n" +
+                "2. Click next to checkout");
+        }
+
+        private void pbCheckout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. At the top, all the pizzas with the relative toppings will be displayed. Drinks and sides are on the right.\n" +
+                "2. The checkboex will apply the deals, if they are available; if the deal is not available it will display an error.\n" +
+                "3. Under the checkboxes there will be the price breakdown, with total before and after the deals and delivery charge.");
         }
     }
 

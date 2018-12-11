@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tcOrder = new System.Windows.Forms.TabControl();
             this.tpPizza = new System.Windows.Forms.TabPage();
+            this.label32 = new System.Windows.Forms.Label();
+            this.pbPizza = new System.Windows.Forms.PictureBox();
             this.btlDeletePizza = new System.Windows.Forms.Button();
             this.btnAddPizza = new System.Windows.Forms.Button();
             this.gbTopping = new System.Windows.Forms.GroupBox();
@@ -40,6 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpSide = new System.Windows.Forms.TabPage();
+            this.label33 = new System.Windows.Forms.Label();
+            this.pbSides = new System.Windows.Forms.PictureBox();
+            this.btnPrevToPizza = new System.Windows.Forms.Button();
             this.btnAddSide = new System.Windows.Forms.Button();
             this.btnDeleteSide = new System.Windows.Forms.Button();
             this.btnGoToDrink = new System.Windows.Forms.Button();
@@ -60,6 +64,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpDrink = new System.Windows.Forms.TabPage();
+            this.label34 = new System.Windows.Forms.Label();
+            this.pbDrinks = new System.Windows.Forms.PictureBox();
+            this.btnPrevToSide = new System.Windows.Forms.Button();
             this.btnAddDrink = new System.Windows.Forms.Button();
             this.btnDeleteDrink = new System.Windows.Forms.Button();
             this.btnGoToCustomer = new System.Windows.Forms.Button();
@@ -78,6 +85,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tpCustomer = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.pbCustomer = new System.Windows.Forms.PictureBox();
+            this.btnPrevToDrink = new System.Windows.Forms.Button();
             this.txtPost = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.btnGoToCheckout = new System.Windows.Forms.Button();
@@ -89,6 +99,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tpCheckout = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pbCheckout = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -110,11 +122,15 @@
             this.lstPizza = new System.Windows.Forms.ListBox();
             this.lstSides = new System.Windows.Forms.ListBox();
             this.lstDrinks = new System.Windows.Forms.ListBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.tcOrder.SuspendLayout();
             this.tpPizza.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPizza)).BeginInit();
             this.gbTopping.SuspendLayout();
             this.tpSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSides)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColeslaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLargeFries)).BeginInit();
@@ -124,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCheeseGarlic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPlainGarlic)).BeginInit();
             this.tpDrink.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDrinks)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTango)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFanta)).BeginInit();
@@ -132,7 +149,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPepsi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCoke)).BeginInit();
             this.tpCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).BeginInit();
             this.tpCheckout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCheckout)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -148,11 +167,14 @@
             this.tcOrder.Location = new System.Drawing.Point(12, 12);
             this.tcOrder.Name = "tcOrder";
             this.tcOrder.SelectedIndex = 0;
-            this.tcOrder.Size = new System.Drawing.Size(521, 560);
+            this.tcOrder.Size = new System.Drawing.Size(529, 560);
             this.tcOrder.TabIndex = 0;
+            this.tcOrder.SelectedIndexChanged += new System.EventHandler(this.tcOrder_SelectedIndexChanged);
             // 
             // tpPizza
             // 
+            this.tpPizza.Controls.Add(this.label32);
+            this.tpPizza.Controls.Add(this.pbPizza);
             this.tpPizza.Controls.Add(this.btlDeletePizza);
             this.tpPizza.Controls.Add(this.btnAddPizza);
             this.tpPizza.Controls.Add(this.gbTopping);
@@ -163,10 +185,31 @@
             this.tpPizza.Location = new System.Drawing.Point(4, 22);
             this.tpPizza.Name = "tpPizza";
             this.tpPizza.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPizza.Size = new System.Drawing.Size(513, 534);
+            this.tpPizza.Size = new System.Drawing.Size(521, 534);
             this.tpPizza.TabIndex = 0;
             this.tpPizza.Text = "Pizza";
             this.tpPizza.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(437, 17);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(35, 13);
+            this.label32.TabIndex = 9;
+            this.label32.Text = "HELP";
+            // 
+            // pbPizza
+            // 
+            this.pbPizza.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPizza.Image = global::OrderingApp.Properties.Resources.img_137547;
+            this.pbPizza.Location = new System.Drawing.Point(478, 6);
+            this.pbPizza.Name = "pbPizza";
+            this.pbPizza.Size = new System.Drawing.Size(37, 31);
+            this.pbPizza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPizza.TabIndex = 8;
+            this.pbPizza.TabStop = false;
+            this.pbPizza.Click += new System.EventHandler(this.pbPizza_Click);
             // 
             // btlDeletePizza
             // 
@@ -271,6 +314,9 @@
             // 
             // tpSide
             // 
+            this.tpSide.Controls.Add(this.label33);
+            this.tpSide.Controls.Add(this.pbSides);
+            this.tpSide.Controls.Add(this.btnPrevToPizza);
             this.tpSide.Controls.Add(this.btnAddSide);
             this.tpSide.Controls.Add(this.btnDeleteSide);
             this.tpSide.Controls.Add(this.btnGoToDrink);
@@ -278,10 +324,42 @@
             this.tpSide.Controls.Add(this.groupBox1);
             this.tpSide.Location = new System.Drawing.Point(4, 22);
             this.tpSide.Name = "tpSide";
-            this.tpSide.Size = new System.Drawing.Size(513, 534);
+            this.tpSide.Size = new System.Drawing.Size(521, 534);
             this.tpSide.TabIndex = 1;
             this.tpSide.Text = "Sides";
             this.tpSide.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(440, 14);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(35, 13);
+            this.label33.TabIndex = 14;
+            this.label33.Text = "HELP";
+            // 
+            // pbSides
+            // 
+            this.pbSides.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSides.Image = global::OrderingApp.Properties.Resources.img_137547;
+            this.pbSides.Location = new System.Drawing.Point(481, 3);
+            this.pbSides.Name = "pbSides";
+            this.pbSides.Size = new System.Drawing.Size(37, 31);
+            this.pbSides.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSides.TabIndex = 13;
+            this.pbSides.TabStop = false;
+            this.pbSides.Click += new System.EventHandler(this.pbSides_Click);
+            // 
+            // btnPrevToPizza
+            // 
+            this.btnPrevToPizza.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrevToPizza.Location = new System.Drawing.Point(17, 483);
+            this.btnPrevToPizza.Name = "btnPrevToPizza";
+            this.btnPrevToPizza.Size = new System.Drawing.Size(104, 36);
+            this.btnPrevToPizza.TabIndex = 12;
+            this.btnPrevToPizza.Text = "Previous";
+            this.btnPrevToPizza.UseVisualStyleBackColor = false;
+            this.btnPrevToPizza.Click += new System.EventHandler(this.btnPrevToPizza_Click);
             // 
             // btnAddSide
             // 
@@ -354,6 +432,7 @@
             // 
             this.nudColeslaw.Location = new System.Drawing.Point(245, 201);
             this.nudColeslaw.Name = "nudColeslaw";
+            this.nudColeslaw.ReadOnly = true;
             this.nudColeslaw.Size = new System.Drawing.Size(120, 20);
             this.nudColeslaw.TabIndex = 13;
             // 
@@ -361,6 +440,7 @@
             // 
             this.nudLargeFries.Location = new System.Drawing.Point(245, 170);
             this.nudLargeFries.Name = "nudLargeFries";
+            this.nudLargeFries.ReadOnly = true;
             this.nudLargeFries.Size = new System.Drawing.Size(120, 20);
             this.nudLargeFries.TabIndex = 12;
             // 
@@ -368,6 +448,7 @@
             // 
             this.nudFries.Location = new System.Drawing.Point(245, 142);
             this.nudFries.Name = "nudFries";
+            this.nudFries.ReadOnly = true;
             this.nudFries.Size = new System.Drawing.Size(120, 20);
             this.nudFries.TabIndex = 11;
             // 
@@ -375,6 +456,7 @@
             // 
             this.nud10SpicyChicken.Location = new System.Drawing.Point(245, 111);
             this.nud10SpicyChicken.Name = "nud10SpicyChicken";
+            this.nud10SpicyChicken.ReadOnly = true;
             this.nud10SpicyChicken.Size = new System.Drawing.Size(120, 20);
             this.nud10SpicyChicken.TabIndex = 10;
             // 
@@ -382,6 +464,7 @@
             // 
             this.nud5SpicyChicken.Location = new System.Drawing.Point(245, 82);
             this.nud5SpicyChicken.Name = "nud5SpicyChicken";
+            this.nud5SpicyChicken.ReadOnly = true;
             this.nud5SpicyChicken.Size = new System.Drawing.Size(120, 20);
             this.nud5SpicyChicken.TabIndex = 9;
             // 
@@ -389,6 +472,7 @@
             // 
             this.nudCheeseGarlic.Location = new System.Drawing.Point(245, 54);
             this.nudCheeseGarlic.Name = "nudCheeseGarlic";
+            this.nudCheeseGarlic.ReadOnly = true;
             this.nudCheeseGarlic.Size = new System.Drawing.Size(120, 20);
             this.nudCheeseGarlic.TabIndex = 8;
             // 
@@ -396,6 +480,7 @@
             // 
             this.nudPlainGarlic.Location = new System.Drawing.Point(245, 25);
             this.nudPlainGarlic.Name = "nudPlainGarlic";
+            this.nudPlainGarlic.ReadOnly = true;
             this.nudPlainGarlic.Size = new System.Drawing.Size(120, 20);
             this.nudPlainGarlic.TabIndex = 7;
             // 
@@ -471,6 +556,9 @@
             // 
             // tpDrink
             // 
+            this.tpDrink.Controls.Add(this.label34);
+            this.tpDrink.Controls.Add(this.pbDrinks);
+            this.tpDrink.Controls.Add(this.btnPrevToSide);
             this.tpDrink.Controls.Add(this.btnAddDrink);
             this.tpDrink.Controls.Add(this.btnDeleteDrink);
             this.tpDrink.Controls.Add(this.btnGoToCustomer);
@@ -478,10 +566,42 @@
             this.tpDrink.Controls.Add(this.label12);
             this.tpDrink.Location = new System.Drawing.Point(4, 22);
             this.tpDrink.Name = "tpDrink";
-            this.tpDrink.Size = new System.Drawing.Size(513, 534);
+            this.tpDrink.Size = new System.Drawing.Size(521, 534);
             this.tpDrink.TabIndex = 2;
             this.tpDrink.Text = "Drinks";
             this.tpDrink.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(440, 14);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(35, 13);
+            this.label34.TabIndex = 17;
+            this.label34.Text = "HELP";
+            // 
+            // pbDrinks
+            // 
+            this.pbDrinks.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbDrinks.Image = global::OrderingApp.Properties.Resources.img_137547;
+            this.pbDrinks.Location = new System.Drawing.Point(481, 3);
+            this.pbDrinks.Name = "pbDrinks";
+            this.pbDrinks.Size = new System.Drawing.Size(37, 31);
+            this.pbDrinks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDrinks.TabIndex = 16;
+            this.pbDrinks.TabStop = false;
+            this.pbDrinks.Click += new System.EventHandler(this.pbDrinks_Click);
+            // 
+            // btnPrevToSide
+            // 
+            this.btnPrevToSide.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrevToSide.Location = new System.Drawing.Point(15, 485);
+            this.btnPrevToSide.Name = "btnPrevToSide";
+            this.btnPrevToSide.Size = new System.Drawing.Size(104, 36);
+            this.btnPrevToSide.TabIndex = 15;
+            this.btnPrevToSide.Text = "Previous";
+            this.btnPrevToSide.UseVisualStyleBackColor = false;
+            this.btnPrevToSide.Click += new System.EventHandler(this.btnPrevToSide_Click);
             // 
             // btnAddDrink
             // 
@@ -542,6 +662,7 @@
             // 
             this.nudTango.Location = new System.Drawing.Point(135, 172);
             this.nudTango.Name = "nudTango";
+            this.nudTango.ReadOnly = true;
             this.nudTango.Size = new System.Drawing.Size(120, 20);
             this.nudTango.TabIndex = 11;
             // 
@@ -549,6 +670,7 @@
             // 
             this.nudFanta.Location = new System.Drawing.Point(135, 141);
             this.nudFanta.Name = "nudFanta";
+            this.nudFanta.ReadOnly = true;
             this.nudFanta.Size = new System.Drawing.Size(120, 20);
             this.nudFanta.TabIndex = 10;
             // 
@@ -556,6 +678,7 @@
             // 
             this.nudSevenUp.Location = new System.Drawing.Point(135, 111);
             this.nudSevenUp.Name = "nudSevenUp";
+            this.nudSevenUp.ReadOnly = true;
             this.nudSevenUp.Size = new System.Drawing.Size(120, 20);
             this.nudSevenUp.TabIndex = 9;
             // 
@@ -563,6 +686,7 @@
             // 
             this.nudDiet.Location = new System.Drawing.Point(135, 82);
             this.nudDiet.Name = "nudDiet";
+            this.nudDiet.ReadOnly = true;
             this.nudDiet.Size = new System.Drawing.Size(120, 20);
             this.nudDiet.TabIndex = 8;
             // 
@@ -570,6 +694,7 @@
             // 
             this.nudPepsi.Location = new System.Drawing.Point(135, 55);
             this.nudPepsi.Name = "nudPepsi";
+            this.nudPepsi.ReadOnly = true;
             this.nudPepsi.Size = new System.Drawing.Size(120, 20);
             this.nudPepsi.TabIndex = 7;
             // 
@@ -577,6 +702,7 @@
             // 
             this.nudCoke.Location = new System.Drawing.Point(135, 25);
             this.nudCoke.Name = "nudCoke";
+            this.nudCoke.ReadOnly = true;
             this.nudCoke.Size = new System.Drawing.Size(120, 20);
             this.nudCoke.TabIndex = 6;
             // 
@@ -652,6 +778,9 @@
             // 
             // tpCustomer
             // 
+            this.tpCustomer.Controls.Add(this.label35);
+            this.tpCustomer.Controls.Add(this.pbCustomer);
+            this.tpCustomer.Controls.Add(this.btnPrevToDrink);
             this.tpCustomer.Controls.Add(this.txtPost);
             this.tpCustomer.Controls.Add(this.label23);
             this.tpCustomer.Controls.Add(this.btnGoToCheckout);
@@ -664,10 +793,42 @@
             this.tpCustomer.Controls.Add(this.label19);
             this.tpCustomer.Location = new System.Drawing.Point(4, 22);
             this.tpCustomer.Name = "tpCustomer";
-            this.tpCustomer.Size = new System.Drawing.Size(513, 534);
+            this.tpCustomer.Size = new System.Drawing.Size(521, 534);
             this.tpCustomer.TabIndex = 3;
             this.tpCustomer.Text = "Customer Details";
             this.tpCustomer.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(440, 14);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(35, 13);
+            this.label35.TabIndex = 19;
+            this.label35.Text = "HELP";
+            // 
+            // pbCustomer
+            // 
+            this.pbCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCustomer.Image = global::OrderingApp.Properties.Resources.img_137547;
+            this.pbCustomer.Location = new System.Drawing.Point(481, 3);
+            this.pbCustomer.Name = "pbCustomer";
+            this.pbCustomer.Size = new System.Drawing.Size(37, 31);
+            this.pbCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCustomer.TabIndex = 18;
+            this.pbCustomer.TabStop = false;
+            this.pbCustomer.Click += new System.EventHandler(this.pbCustomer_Click);
+            // 
+            // btnPrevToDrink
+            // 
+            this.btnPrevToDrink.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrevToDrink.Location = new System.Drawing.Point(16, 481);
+            this.btnPrevToDrink.Name = "btnPrevToDrink";
+            this.btnPrevToDrink.Size = new System.Drawing.Size(104, 36);
+            this.btnPrevToDrink.TabIndex = 15;
+            this.btnPrevToDrink.Text = "Previous";
+            this.btnPrevToDrink.UseVisualStyleBackColor = false;
+            this.btnPrevToDrink.Click += new System.EventHandler(this.btnPrevToDrink_Click);
             // 
             // txtPost
             // 
@@ -772,6 +933,8 @@
             // 
             // tpCheckout
             // 
+            this.tpCheckout.Controls.Add(this.label36);
+            this.tpCheckout.Controls.Add(this.pbCheckout);
             this.tpCheckout.Controls.Add(this.label22);
             this.tpCheckout.Controls.Add(this.txtEmployeeID);
             this.tpCheckout.Controls.Add(this.groupBox4);
@@ -781,16 +944,37 @@
             this.tpCheckout.Controls.Add(this.groupBox5);
             this.tpCheckout.Location = new System.Drawing.Point(4, 22);
             this.tpCheckout.Name = "tpCheckout";
-            this.tpCheckout.Size = new System.Drawing.Size(513, 534);
+            this.tpCheckout.Size = new System.Drawing.Size(521, 534);
             this.tpCheckout.TabIndex = 4;
             this.tpCheckout.Text = "Checkout";
             this.tpCheckout.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(440, 14);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(35, 13);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "HELP";
+            // 
+            // pbCheckout
+            // 
+            this.pbCheckout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbCheckout.Image = global::OrderingApp.Properties.Resources.img_137547;
+            this.pbCheckout.Location = new System.Drawing.Point(481, 3);
+            this.pbCheckout.Name = "pbCheckout";
+            this.pbCheckout.Size = new System.Drawing.Size(37, 31);
+            this.pbCheckout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCheckout.TabIndex = 20;
+            this.pbCheckout.TabStop = false;
+            this.pbCheckout.Click += new System.EventHandler(this.pbCheckout_Click);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(6, 504);
+            this.label22.Location = new System.Drawing.Point(9, 502);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(113, 17);
             this.label22.TabIndex = 10;
@@ -800,7 +984,7 @@
             // 
             this.txtEmployeeID.BackColor = System.Drawing.Color.White;
             this.txtEmployeeID.Enabled = false;
-            this.txtEmployeeID.Location = new System.Drawing.Point(125, 503);
+            this.txtEmployeeID.Location = new System.Drawing.Point(128, 501);
             this.txtEmployeeID.Name = "txtEmployeeID";
             this.txtEmployeeID.Size = new System.Drawing.Size(100, 20);
             this.txtEmployeeID.TabIndex = 9;
@@ -815,7 +999,7 @@
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.txtTotPrice);
             this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Location = new System.Drawing.Point(34, 340);
+            this.groupBox4.Location = new System.Drawing.Point(18, 321);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(257, 147);
             this.groupBox4.TabIndex = 6;
@@ -902,12 +1086,13 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Order";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbDeal2);
             this.groupBox3.Controls.Add(this.cbDeal1);
-            this.groupBox3.Location = new System.Drawing.Point(34, 250);
+            this.groupBox3.Location = new System.Drawing.Point(12, 243);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(356, 72);
             this.groupBox3.TabIndex = 4;
@@ -940,7 +1125,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(155, 16);
+            this.label24.Location = new System.Drawing.Point(158, 9);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(126, 25);
             this.label24.TabIndex = 0;
@@ -949,7 +1134,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.lstPizzaAndToppings);
-            this.groupBox5.Location = new System.Drawing.Point(3, 44);
+            this.groupBox5.Location = new System.Drawing.Point(6, 37);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(507, 200);
             this.groupBox5.TabIndex = 8;
@@ -967,30 +1152,62 @@
             // lstPizza
             // 
             this.lstPizza.FormattingEnabled = true;
-            this.lstPizza.Location = new System.Drawing.Point(539, 34);
+            this.lstPizza.Location = new System.Drawing.Point(561, 35);
             this.lstPizza.Name = "lstPizza";
-            this.lstPizza.Size = new System.Drawing.Size(242, 173);
+            this.lstPizza.Size = new System.Drawing.Size(284, 186);
             this.lstPizza.TabIndex = 1;
             // 
             // lstSides
             // 
             this.lstSides.FormattingEnabled = true;
-            this.lstSides.Location = new System.Drawing.Point(539, 213);
+            this.lstSides.Location = new System.Drawing.Point(561, 250);
             this.lstSides.Name = "lstSides";
-            this.lstSides.Size = new System.Drawing.Size(242, 173);
+            this.lstSides.Size = new System.Drawing.Size(284, 147);
             this.lstSides.TabIndex = 2;
             // 
             // lstDrinks
             // 
             this.lstDrinks.FormattingEnabled = true;
-            this.lstDrinks.Location = new System.Drawing.Point(539, 389);
+            this.lstDrinks.Location = new System.Drawing.Point(561, 425);
             this.lstDrinks.Name = "lstDrinks";
-            this.lstDrinks.Size = new System.Drawing.Size(242, 186);
+            this.lstDrinks.Size = new System.Drawing.Size(284, 147);
             this.lstDrinks.TabIndex = 3;
             // 
-            // timer1
+            // label29
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.Location = new System.Drawing.Point(636, 12);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(72, 20);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "PIZZAS";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.BackColor = System.Drawing.Color.Transparent;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.Red;
+            this.label30.Location = new System.Drawing.Point(654, 226);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(64, 20);
+            this.label30.TabIndex = 5;
+            this.label30.Text = "SIDES";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.BackColor = System.Drawing.Color.Transparent;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Red;
+            this.label31.Location = new System.Drawing.Point(653, 402);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(76, 20);
+            this.label31.TabIndex = 6;
+            this.label31.Text = "DRINKS";
             // 
             // order
             // 
@@ -998,7 +1215,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.BackgroundImage = global::OrderingApp.Properties.Resources.mto4z4y0xaenpk1dhuer2vowgbwfh64s7vk8ev32hzeha0dmfjcigtzvxfredgxw_;
-            this.ClientSize = new System.Drawing.Size(789, 601);
+            this.ClientSize = new System.Drawing.Size(898, 620);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.lstDrinks);
             this.Controls.Add(this.lstSides);
             this.Controls.Add(this.lstPizza);
@@ -1009,9 +1229,11 @@
             this.tcOrder.ResumeLayout(false);
             this.tpPizza.ResumeLayout(false);
             this.tpPizza.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPizza)).EndInit();
             this.gbTopping.ResumeLayout(false);
             this.tpSide.ResumeLayout(false);
             this.tpSide.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSides)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudColeslaw)).EndInit();
@@ -1023,6 +1245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPlainGarlic)).EndInit();
             this.tpDrink.ResumeLayout(false);
             this.tpDrink.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDrinks)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTango)).EndInit();
@@ -1033,14 +1256,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCoke)).EndInit();
             this.tpCustomer.ResumeLayout(false);
             this.tpCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCustomer)).EndInit();
             this.tpCheckout.ResumeLayout(false);
             this.tpCheckout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCheckout)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1125,8 +1351,23 @@
         private System.Windows.Forms.TextBox txtDeliveryCharges;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtEmployeeID;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button btnPrevToPizza;
+        private System.Windows.Forms.Button btnPrevToSide;
+        private System.Windows.Forms.Button btnPrevToDrink;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.PictureBox pbPizza;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.PictureBox pbSides;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.PictureBox pbDrinks;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.PictureBox pbCustomer;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.PictureBox pbCheckout;
     }
 }
