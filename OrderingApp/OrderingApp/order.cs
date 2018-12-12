@@ -56,7 +56,10 @@ namespace OrderingApp
         string address;
         string postcode;
         string phone;
-        
+
+        //Counter to use for validation
+        int validationCount;
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF GLOBAL VARIABLES>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
         public order(string employeeID_ref)
         {
@@ -111,7 +114,7 @@ namespace OrderingApp
         {
             GoToPrevtab();
         }
-        
+
         //Go to next tab
         private void btnGoToSides_Click(object sender, EventArgs e)
         {
@@ -127,6 +130,7 @@ namespace OrderingApp
         {
             GoToNextTab();
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF TAB PAGE INTERACTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
         /*======================================METHOD FOR POPULATING LISTS============================*/
@@ -186,6 +190,8 @@ namespace OrderingApp
                 }
             }
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF POPULATING LISTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*====================================DEALS=========================================*/
         public double ApplyDealOne()
@@ -252,6 +258,8 @@ namespace OrderingApp
             //Return the amount saved.
             return dealTwoSaves;
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF DEALS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*==============================================CALCULATIONS=====================================*/
         private void CalculateTotal()
@@ -291,6 +299,7 @@ namespace OrderingApp
             txtTotPrice.Text = $"{totFinal:C2}";
 
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF CALCLUCATING PRICES>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
         /*===========================================ADD PIZZA==========================================*/
         private void btnAddPizza_Click(object sender, EventArgs e)
@@ -309,19 +318,19 @@ namespace OrderingApp
             // if it is checked it adds the name of the topping to the list of toppings that is inside the pizza class.
             if (clbTopping.GetItemCheckState(0) == CheckState.Checked)
             {
-              newPizza.toppings.Add("Anchovies");
+                newPizza.toppings.Add("Anchovies");
             }
             if (clbTopping.GetItemCheckState(1) == CheckState.Checked)
             {
-              newPizza.toppings.Add("Black Olives");
+                newPizza.toppings.Add("Black Olives");
             }
             if (clbTopping.GetItemCheckState(2) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Peppers");
+                newPizza.toppings.Add("Peppers");
             }
             if (clbTopping.GetItemCheckState(3) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Jalapenos");
+                newPizza.toppings.Add("Jalapenos");
             }
             if (clbTopping.GetItemCheckState(4) == CheckState.Checked)
             {
@@ -329,7 +338,7 @@ namespace OrderingApp
             }
             if (clbTopping.GetItemCheckState(5) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Red onions");
+                newPizza.toppings.Add("Red onions");
             }
             if (clbTopping.GetItemCheckState(6) == CheckState.Checked)
             {
@@ -337,7 +346,7 @@ namespace OrderingApp
             }
             if (clbTopping.GetItemCheckState(7) == CheckState.Checked)
             {
-              newPizza.toppings.Add("Pepperoni");
+                newPizza.toppings.Add("Pepperoni");
             }
             if (clbTopping.GetItemCheckState(8) == CheckState.Checked)
             {
@@ -349,11 +358,11 @@ namespace OrderingApp
             }
             if (clbTopping.GetItemCheckState(10) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Chicken");
+                newPizza.toppings.Add("Chicken");
             }
             if (clbTopping.GetItemCheckState(11) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Sausages");
+                newPizza.toppings.Add("Sausages");
             }
             if (clbTopping.GetItemCheckState(12) == CheckState.Checked)
             {
@@ -361,7 +370,7 @@ namespace OrderingApp
             }
             if (clbTopping.GetItemCheckState(13) == CheckState.Checked)
             {
-               newPizza.toppings.Add("Tuna");
+                newPizza.toppings.Add("Tuna");
             }
             //Counts the number of toppings checked, so that it can be used to calculate the total price, as each topping has the same price
             newPizza.numOfToppings = newPizza.toppings.Count;
@@ -392,6 +401,8 @@ namespace OrderingApp
                 clbTopping.SetItemCheckState(i, CheckState.Unchecked);
             }
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF PIZZA PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*=================================================ADD SIDES===============================*/
         private void btnAddSide_Click(object sender, EventArgs e)
@@ -469,6 +480,8 @@ namespace OrderingApp
             nud10SpicyChicken.Value = 0;
             nudColeslaw.Value = 0;
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SIDES PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*=========================================ADD DRINKS=======================================*/
         private void btnAddDrink_Click(object sender, EventArgs e)
@@ -534,14 +547,23 @@ namespace OrderingApp
             nudSevenUp.Value = 0;
             nudPepsi.Value = 0;
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF DRINK PAGE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
-        /*================================================CHECKOUT================================*/
+
+        /*==========================================================CHECKOUT===========================================*/
         private void btnGoToCheckout_Click(object sender, EventArgs e)
         {
-            //Adds the checkout page
-            tcOrder.TabPages.Add(tpCheckout);
-            //Calls the next tab method, to get to the next tab
-            GoToNextTab();
+            if (validationCount >= 4)
+            { 
+                //Adds the checkout page
+                tcOrder.TabPages.Add(tpCheckout);
+                //Calls the next tab method, to get to the next tab
+                GoToNextTab();
+            }
+            else
+            {
+                MessageBox.Show("Please complete details before proceeding.");
+            }
         }
 
         private void tcOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -580,6 +602,8 @@ namespace OrderingApp
             totFinal = totalReg - (dealOneSaves + dealTwoSaves) + deliveryCharge;
             txtTotPrice.Text = $"{totFinal:C2}";
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF CHECKOUT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*==================================DELETE BUTTONS===================================*/
         private void btlDeletePizza_Click(object sender, EventArgs e)
@@ -622,6 +646,8 @@ namespace OrderingApp
                 lstDrinks.Items.Add(drinks[i].name + " Quantity x" + drinks[i].quantity + " " + $"{drinks[i].price:C2}");
             }
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF DELETE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*======================================VALIDATING TEXT BOXES IN CUSTOMER TAB==================================*/
         private void txtName_Validating(object sender, CancelEventArgs e)
@@ -633,6 +659,7 @@ namespace OrderingApp
             else
             {
                 name = txtName.Text;
+                validationCount++;
             }
         }
 
@@ -645,6 +672,7 @@ namespace OrderingApp
             else
             {
                 address = txtAddress.Text;
+                validationCount++;
             }
         }
 
@@ -657,6 +685,7 @@ namespace OrderingApp
             else
             {
                 postcode = txtPost.Text;
+                validationCount++;
             }
         }
 
@@ -669,8 +698,11 @@ namespace OrderingApp
             else
             {
                 phone = txtPhone.Text;
+                validationCount++;
             }
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF VALIDATIONS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*============================RELOAD ORDER OR CLOSE==========================*/
         private void button1_Click(object sender, EventArgs e)
@@ -689,6 +721,8 @@ namespace OrderingApp
                 this.Close();
             }
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF RELOAD/CLOSE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 
         /*==================================HELP==========================================*/
         private void pbPizza_Click(object sender, EventArgs e)
@@ -724,11 +758,13 @@ namespace OrderingApp
                 "2. The checkboex will apply the deals, if they are available; if the deal is not available it will display an error.\n" +
                 "3. Under the checkboxes there will be the price breakdown, with total before and after the deals and delivery charge.");
         }
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF HELP>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     }
 
+    /*=============================================CREATE CLASSES===================================*/
     class pizza
     {
-        //Creates class containing the size, price, the total number of topping selected, and the toppin chosen
+        //Creates class containing the size, price, the total number of topping selected, and the toppings chosen
         public string size;
         public List<string> toppings = new List<string>();
         public int numOfToppings;
@@ -747,3 +783,5 @@ namespace OrderingApp
         public int quantity;
     }
 }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<END OF CLASSES>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
